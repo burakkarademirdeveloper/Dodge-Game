@@ -1,1 +1,4 @@
-public delegate void EventListener<in TEvent>(object sender, TEvent @event);
+namespace EventBus
+{
+    public delegate void EventListener<in TEvent>(object sender, TEvent @event);
+}
