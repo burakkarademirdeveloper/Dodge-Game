@@ -5,7 +5,7 @@ namespace Controllers
 {
     public class CharJumpController : MonoBehaviour
     {
-        [SerializeField] private float jumpForce;
+        [SerializeField] private float _jumpForce;
         private Rigidbody2D _rb;
         
         private void Start()
@@ -19,7 +19,7 @@ namespace Controllers
         private void CharacterJump()
         {
             if (Input.GetMouseButtonDown(0))
-                _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
 }
