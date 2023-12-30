@@ -10,6 +10,8 @@ namespace Controllers
         [SerializeField] private float _repeatSpawnTime;
 
         [SerializeField] private GameObject _character;
+        
+        [SerializeField] private List<GameObject> _spawnPoints;
         private void Start()
         {
             InvokeRepeating(nameof(SpawnArrow), _firstSpawnTime, _repeatSpawnTime);
@@ -17,8 +19,9 @@ namespace Controllers
 
         private void SpawnArrow()
         {
-            var randomIndex = Random.Range(0, _spawnObjects.Count);
-            var spawnedObject = Instantiate(_spawnObjects[randomIndex], transform.position, Quaternion.identity);
+            var randomObj = Random.Range(0, _spawnObjects.Count);
+            var randomPoint = Random.Range(0, _spawnPoints.Count);
+            var spawnedObject = Instantiate(_spawnObjects[randomObj], _spawnPoints[randomPoint].transform.position, Quaternion.identity);
             
             spawnedObject.GetComponent<ArrowDirection>().GetDirection(_character);
         }
