@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Controllers
 {
-    public class CharJumpController : MonoBehaviour
+    public class BirdJumpController : MonoBehaviour
     {
         [SerializeField] private float _jumpForce;
         private Rigidbody2D _rb;
