@@ -4,7 +4,7 @@ namespace Controllers
 {
     public class BirdJumpController : MonoBehaviour
     {
-        [SerializeField] private float _jumpForce;
+        public float JumpForce;
         private Rigidbody2D _rb;
         
         private void Start()
@@ -18,7 +18,7 @@ namespace Controllers
         private void CharacterJump()
         {
             if (Input.GetMouseButtonDown(0))
-                _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                _rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
         }
     }
 }

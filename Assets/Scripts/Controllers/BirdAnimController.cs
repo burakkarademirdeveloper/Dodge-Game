@@ -27,7 +27,7 @@ namespace Controllers
         private void PlayAnimation(object sender, BirdAnimEvent @event)
         {
             _animator.SetTrigger(@event.AnimName);
-            Invoke(nameof(SpriteRendererEnable),1f);
+            //Invoke(nameof(SpriteRendererEnable),1f);
         }
         private void SpriteRendererEnable()
         {
