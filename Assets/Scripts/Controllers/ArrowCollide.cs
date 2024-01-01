@@ -13,6 +13,12 @@ namespace Controllers
                 EventBus<BirdAnimEvent>.Emit(this, new BirdAnimEvent("BirdFire"));
                 Destroy(gameObject);
             }
+
+            if (other.GetComponent<ArrowCollide>())
+            {
+                EventBus<ParticleEvent>.Emit(this, new ParticleEvent(transform.position));
+                Destroy(gameObject);
+            }
         }
     }
 }

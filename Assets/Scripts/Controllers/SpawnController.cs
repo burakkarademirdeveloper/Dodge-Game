@@ -1,5 +1,9 @@
+using System;
 using System.Collections.Generic;
+using EventBus;
+using Events;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Controllers
 {
@@ -9,12 +13,24 @@ namespace Controllers
         [SerializeField] private float _firstSpawnTime;
         [SerializeField] private float _repeatSpawnTime;
 
+        [SerializeField] private GameObject _particle;
+        
         [SerializeField] private GameObject _character;
         
         [SerializeField] private List<GameObject> _spawnPoints;
         private void Start()
         {
             InvokeRepeating(nameof(SpawnArrow), _firstSpawnTime, _repeatSpawnTime);
+        }
+
+        private void OnEnable()
+        {
+            EventBus<ParticleEvent>.AddListener(SpawnParticle);
+        }
+
+        private void OnDisable()
+        {
+            EventBus<ParticleEvent>.RemoveListener(SpawnParticle);
         }
 
         private void SpawnArrow()
@@ -24,6 +40,12 @@ namespace Controllers
             var spawnedObject = Instantiate(_spawnObjects[randomObj], _spawnPoints[randomPoint].transform.position, Quaternion.identity);
             
             spawnedObject.GetComponent<ArrowDirection>().GetDirection(_character);
+        }
+        
+        private void SpawnParticle(object sender, ParticleEvent @event)
+        {
+            var spawnedParticle = Instantiate(_particle, @event.Position, Quaternion.identity);
+            Destroy(spawnedParticle, .5f);
         }
     }
 }

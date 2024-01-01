@@ -1646,6 +1646,7 @@ MonoBehaviour:
   - {fileID: 9223340280574564319, guid: 1dbf1955a91e82041a35fa1222ef8dcf, type: 3}
   _firstSpawnTime: 1
   _repeatSpawnTime: 1
+  _particle: {fileID: 5483936291956506188, guid: 90674eb85d72a19438f8c83ae4ba3685, type: 3}
   _character: {fileID: 731228697}
   _spawnPoints:
   - {fileID: 465514099}
