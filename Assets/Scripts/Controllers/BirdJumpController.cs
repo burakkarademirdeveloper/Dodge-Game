@@ -13,12 +13,17 @@ namespace Controllers
         }
         private void Update()
         {
-            CharacterJump();
+            BirdJump();
         }
-        private void CharacterJump()
+        private void BirdJump()
         {
             if (Input.GetMouseButtonDown(0))
                 _rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+        }
+        
+        public void FirstJump()
+        {
+            _rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
         }
     }
 }

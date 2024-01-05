@@ -11,6 +11,8 @@ namespace Controllers
             if (other.GetComponent<BirdJumpController>())
             {
                 EventBus<BirdAnimEvent>.Emit(this, new BirdAnimEvent("BirdFire"));
+                other.gameObject.GetComponent<BirdJumpController>().FirstJump();
+                GameController.Instance.GameOver();
                 Destroy(gameObject);
             }
 

@@ -13,6 +13,7 @@ namespace Controllers
         [Header("UI")]
         [SerializeField] private GameObject _startPanel;
         [SerializeField] private GameObject _scoreText;
+        [SerializeField] private GameObject _gameOverPanel;
         
         [SerializeField] SpawnController _spawnController;
 
@@ -31,13 +32,21 @@ namespace Controllers
             _spawnController.gameObject.SetActive(true);
             _rb.gravityScale = 1f;
             _bird.GetComponent<BirdJumpController>().JumpForce = 5f;
+            _bird.GetComponent<BirdJumpController>().FirstJump();
             StartPanel(false);
+            _gameOverPanel.SetActive(false);
         }
         public void GameOver()
         {
             _spawnController.gameObject.SetActive(false);
-            _rb.gravityScale = 0f;
+            Invoke(nameof(ChangeGravityScale),1f);
+            _gameOverPanel.SetActive(true);
             _bird.GetComponent<BirdJumpController>().JumpForce = 0f;
+        }
+
+        private void ChangeGravityScale(float value)
+        {
+            _rb.gravityScale = value;
         }
         
         public void RestartGame() //RestartButton
