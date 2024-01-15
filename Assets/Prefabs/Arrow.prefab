@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minSpeed: 3
-  _maxSpeed: 8
+  _maxSpeed: 10
 --- !u!70 &8542474112381121297
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

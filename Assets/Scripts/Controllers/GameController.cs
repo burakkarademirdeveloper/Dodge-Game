@@ -1,6 +1,8 @@
+using System;
 using EventBus;
 using Events;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Controllers
 {
@@ -14,6 +16,7 @@ namespace Controllers
         [SerializeField] private GameObject _startPanel;
         [SerializeField] private GameObject _scoreText;
         [SerializeField] private GameObject _gameOverPanel;
+        [SerializeField] private TMPro.TextMeshProUGUI _gameOverScoreText;
         
         [SerializeField] SpawnController _spawnController;
 
@@ -38,6 +41,10 @@ namespace Controllers
         }
         public void GameOver()
         {
+            var score = Convert.ToInt32(_scoreText.GetComponent<TMPro.TextMeshProUGUI>().text);
+            PlayerPrefs.SetInt("Score", score);
+            _gameOverScoreText.text = score.ToString();
+            EventBus<ScoreEvent>.Emit(this, new ScoreEvent());
             _spawnController.gameObject.SetActive(false);
             Invoke(nameof(ChangeGravityScale),1f);
             _gameOverPanel.SetActive(true);
@@ -63,6 +70,17 @@ namespace Controllers
         {
             _startPanel.SetActive(state);
             _scoreText.SetActive(!state);
+        }
+
+        public int HighScoreControl()
+        {
+            var highScore = PlayerPrefs.GetInt("HighScore");
+            var score = PlayerPrefs.GetInt("Score");
+            
+            if (score > highScore)
+                PlayerPrefs.SetInt("HighScore", score);
+            
+            return PlayerPrefs.GetInt("HighScore");
         }
     }
 }
