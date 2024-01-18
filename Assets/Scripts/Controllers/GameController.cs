@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using EventBus;
 using Events;
 using UnityEngine;
@@ -17,8 +18,6 @@ namespace Controllers
         [SerializeField] private GameObject _scoreText;
         [SerializeField] private GameObject _gameOverPanel;
         [SerializeField] private TMPro.TextMeshProUGUI _gameOverScoreText;
-        
-        [SerializeField] SpawnController _spawnController;
 
         public static GameController Instance;
 
@@ -32,7 +31,7 @@ namespace Controllers
 
         public void StartGame()
         {
-            _spawnController.gameObject.SetActive(true);
+            SpawnController.Instance.StartSpawn();
             _rb.gravityScale = 1f;
             _bird.GetComponent<BirdJumpController>().JumpForce = 5f;
             _bird.GetComponent<BirdJumpController>().FirstJump();
@@ -45,27 +44,20 @@ namespace Controllers
             PlayerPrefs.SetInt("Score", score);
             _gameOverScoreText.text = score.ToString();
             EventBus<ScoreEvent>.Emit(this, new ScoreEvent());
-            _spawnController.gameObject.SetActive(false);
-            Invoke(nameof(ChangeGravityScale),1f);
-            _gameOverPanel.SetActive(true);
+            StartCoroutine(ChangeGravityScale(1f));
             _bird.GetComponent<BirdJumpController>().JumpForce = 0f;
+            SpawnController.Instance.StopSpawn();
         }
 
-        private void ChangeGravityScale(float value)
+        private IEnumerator ChangeGravityScale(float time)
         {
-            _rb.gravityScale = value;
-        }
-        
-        public void RestartGame() //RestartButton
-        {
-            //Kuş y2 ye gider. -- Oklar fırlatılmaya başlar. -- Puan sıfırlanır. -- Restart butonu kaybolur.
-            var birdPos = new Vector3(0f,2f,0f);
-            
+            yield return new WaitForSeconds(time);
             _rb.gravityScale = 0f;
-            _bird.transform.position = birdPos;
-            EventBus<BirdAnimEvent>.Emit(this, new BirdAnimEvent("BirdFire"));
+            EventBus<BirdRestartPosEvent>.Emit(this, new BirdRestartPosEvent());
+            EventBus<BirdAnimEvent>.Emit(this, new BirdAnimEvent("BirdFly"));
+            yield return new WaitForSeconds(time + 1f);
+            _gameOverPanel.SetActive(true);
         }
-
         public void StartPanel(bool state)
         {
             _startPanel.SetActive(state);

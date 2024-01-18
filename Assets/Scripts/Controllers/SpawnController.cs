@@ -18,11 +18,16 @@ namespace Controllers
         [SerializeField] private GameObject _character;
         
         [SerializeField] private List<GameObject> _spawnPoints;
-        private void Start()
-        {
-            InvokeRepeating(nameof(SpawnArrow), _firstSpawnTime, _repeatSpawnTime);
-        }
+        
+        public static SpawnController Instance;
 
+        private void Awake()
+        {
+            if (Instance == null)
+                Instance = this;
+            else
+                Destroy(gameObject);
+        }
         private void OnEnable()
         {
             EventBus<ParticleEvent>.AddListener(SpawnParticle);
@@ -46,6 +51,14 @@ namespace Controllers
         {
             var spawnedParticle = Instantiate(_particle, @event.Position, Quaternion.identity);
             Destroy(spawnedParticle, .5f);
+        }
+        public void StartSpawn()
+        {
+            InvokeRepeating(nameof(SpawnArrow), _firstSpawnTime, _repeatSpawnTime);
+        }
+        public void StopSpawn()
+        {
+            CancelInvoke();
         }
     }
 }
