@@ -1125,6 +1125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpForce: 0
+  _rb: {fileID: 731228702}
 --- !u!50 &731228702
 Rigidbody2D:
   serializedVersion: 4
@@ -1259,6 +1260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _restartPosition: {x: 0, y: 6, z: 0}
   _flyTime: 2
+  _boxCollider: {fileID: 731228703}
+  _jumpController: {fileID: 731228701}
+  _rb: {fileID: 731228702}
 --- !u!1 &820025139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1709,7 @@ GameObject:
   - component: {fileID: 1062194225}
   - component: {fileID: 1062194226}
   - component: {fileID: 1062194227}
+  - component: {fileID: 1062194228}
   m_Layer: 0
   m_Name: ScoreCollide
   m_TagString: Untagged
@@ -1785,6 +1790,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 996228979}
+--- !u!114 &1062194228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062194224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45af8397b8edb5840b7b8c7adba1330c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boxCollider2D: {fileID: 1062194226}
 --- !u!1 &1207686853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3202,8 +3220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2ceccb06582fd40a28516760f0c356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bird: {fileID: 731228697}
-  _rb: {fileID: 731228702}
+  _maxGravityScale: 1
+  _minGravityScale: 0
   _startPanel: {fileID: 563732274}
   _scoreText: {fileID: 996228977}
   _gameOverPanel: {fileID: 2030568907}
