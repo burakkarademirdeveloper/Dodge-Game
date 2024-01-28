@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{01a2f4ed-64d6-4d94-aaa4-4656337faa2f}">
+		<property name="assetPath">
+			<value>vo_brainy_05.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.1495</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af2e9307-f2fe-4076-b0ad-d497772638bb}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{1bbc11f5-fff4-4221-802a-c43ffde2704d}">
+		<property name="volume">
+			<value>-3</value>
+		</property>
+		<property name="name">
+			<value>Music</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{68a81c5a-0f4b-4b1c-b16a-f4fb9fe1c37a}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{0557074a-2582-404b-8395-59d6b14c997f}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{b720c20c-ad84-490f-8721-65853ef31287}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{68a81c5a-0f4b-4b1c-b16a-f4fb9fe1c37a}">
+		<relationship name="effects">
+			<destination>{260e0266-3f12-44a8-ab3f-4bfbf3159648}</destination>
+			<destination>{19ff40fa-d9a9-49e4-89d9-035a78d208e4}</destination>
+			<destination>{22784a02-85d3-4d28-8a04-b1910722bd7b}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{0557074a-2582-404b-8395-59d6b14c997f}" />
+	<object class="MultibandEqEffect" id="{260e0266-3f12-44a8-ab3f-4bfbf3159648}">
+		<property name="filterTypeA">
+			<value>8</value>
+		</property>
+		<property name="filterTypeB">
+			<value>4</value>
+		</property>
+		<property name="frequencyA">
+			<value>2888.00977</value>
+		</property>
+		<property name="frequencyB">
+			<value>63.8159714</value>
+		</property>
+		<property name="qualityB">
+			<value>0.591913342</value>
+		</property>
+		<property name="gainA">
+			<value>-6.92307663</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{19ff40fa-d9a9-49e4-89d9-035a78d208e4}">
+		<property name="threshold">
+			<value>-17</value>
+		</property>
+		<property name="ratio">
+			<value>4</value>
+		</property>
+		<property name="attackTime">
+			<value>10</value>
+		</property>
+		<property name="releaseTime">
+			<value>1700</value>
+		</property>
+		<relationship name="sidechains">
+			<destination>{25c8d704-ec3c-4d71-9671-6cd0db7e5d5f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusFader" id="{22784a02-85d3-4d28-8a04-b1910722bd7b}" />
+</objects>

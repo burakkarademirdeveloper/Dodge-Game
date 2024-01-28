@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{c5a8ece4-f443-4a59-b333-ca71ce244c01}">
+		<property name="name">
+			<value>Gameplay</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{ebcfe6a4-4ac4-4b1f-b61f-b57ed8a59b27}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{904c1702-a8d6-4242-8f8b-183b123896ba}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{b720c20c-ad84-490f-8721-65853ef31287}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{ebcfe6a4-4ac4-4b1f-b61f-b57ed8a59b27}">
+		<relationship name="effects">
+			<destination>{b6288e59-0fc9-47f4-bbb7-7738a9d71901}</destination>
+			<destination>{e231337a-8672-4f8c-b885-ffaf88120694}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{904c1702-a8d6-4242-8f8b-183b123896ba}" />
+	<object class="MultibandEqEffect" id="{b6288e59-0fc9-47f4-bbb7-7738a9d71901}">
+		<property name="filterTypeA">
+			<value>9</value>
+		</property>
+		<property name="filterTypeB">
+			<value>4</value>
+		</property>
+		<property name="filterTypeE">
+			<value>1</value>
+		</property>
+		<property name="frequencyA">
+			<value>10000</value>
+		</property>
+		<property name="frequencyB">
+			<value>94.6008911</value>
+		</property>
+		<property name="frequencyE">
+			<value>13000</value>
+		</property>
+		<property name="qualityB">
+			<value>0.486691207</value>
+		</property>
+		<property name="gainA">
+			<value>-6.40303421</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{e231337a-8672-4f8c-b885-ffaf88120694}" />
+</objects>

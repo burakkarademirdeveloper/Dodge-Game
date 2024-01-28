@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{9e9f4c32-4aa3-452f-b3b0-d87a89dbe968}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
+		<property name="name">
+			<value>VO</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{4f8c687f-be6e-4707-bbaf-285628cb01c3}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{411af833-d5aa-42c5-a437-1e22550e9884}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{b720c20c-ad84-490f-8721-65853ef31287}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{4f8c687f-be6e-4707-bbaf-285628cb01c3}">
+		<relationship name="effects">
+			<destination>{61d66efe-c490-4553-b5e1-c0507f1c137f}</destination>
+			<destination>{c76d7211-9f6b-4665-a18c-8e5e0dda0ccd}</destination>
+			<destination>{25c8d704-ec3c-4d71-9671-6cd0db7e5d5f}</destination>
+			<destination>{605125b7-a10a-467d-8b7f-fbab128d5626}</destination>
+			<destination>{017ed16e-f74a-47ac-8e10-72db4d5c2d26}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{411af833-d5aa-42c5-a437-1e22550e9884}" />
+	<object class="MultibandEqEffect" id="{61d66efe-c490-4553-b5e1-c0507f1c137f}">
+		<property name="filterTypeB">
+			<value>4</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="filterTypeD">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>13105.917</value>
+		</property>
+		<property name="frequencyB">
+			<value>120</value>
+		</property>
+		<property name="frequencyC">
+			<value>1793.24646</value>
+		</property>
+		<property name="frequencyD">
+			<value>295.662567</value>
+		</property>
+		<property name="qualityA">
+			<value>0.276247025</value>
+		</property>
+		<property name="qualityB">
+			<value>0.528780103</value>
+		</property>
+		<property name="gainC">
+			<value>-2.76273155</value>
+		</property>
+		<property name="gainD">
+			<value>-5.36294556</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{c76d7211-9f6b-4665-a18c-8e5e0dda0ccd}">
+		<property name="threshold">
+			<value>-16.5</value>
+		</property>
+		<property name="ratio">
+			<value>1.80000007</value>
+		</property>
+		<property name="gain">
+			<value>4</value>
+		</property>
+	</object>
+	<object class="Sidechain" id="{25c8d704-ec3c-4d71-9671-6cd0db7e5d5f}" />
+	<object class="MixerBusFader" id="{605125b7-a10a-467d-8b7f-fbab128d5626}" />
+	<object class="SFXReverbEffect" id="{017ed16e-f74a-47ac-8e10-72db4d5c2d26}">
+		<property name="decayTime">
+			<value>650</value>
+		</property>
+		<property name="highCut">
+			<value>2400</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>71</value>
+		</property>
+		<property name="wetLevel">
+			<value>-29.5</value>
+		</property>
+	</object>
+</objects>

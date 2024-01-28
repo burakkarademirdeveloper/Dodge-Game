@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{11dff387-da09-47a7-b50e-d7df27f43b54}">
+		<property name="assetPath">
+			<value>sfx_conveyor_start.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.13333333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af2e9307-f2fe-4076-b0ad-d497772638bb}</destination>
+		</relationship>
+	</object>
+</objects>

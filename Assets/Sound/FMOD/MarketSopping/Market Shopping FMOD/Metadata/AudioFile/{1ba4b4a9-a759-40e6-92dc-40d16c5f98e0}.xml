@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1ba4b4a9-a759-40e6-92dc-40d16c5f98e0}">
+		<property name="assetPath">
+			<value>sfx_bagin.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.58674999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af2e9307-f2fe-4076-b0ad-d497772638bb}</destination>
+		</relationship>
+	</object>
+</objects>

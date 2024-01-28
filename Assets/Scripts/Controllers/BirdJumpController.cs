@@ -14,7 +14,14 @@ namespace Controllers
         private void BirdJump()
         {
             if (Input.GetMouseButtonDown(0))
+            {
                 _rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+
+                if (JumpForce != 0)
+                {
+                    SoundController.Instance.PlayTapSound();
+                }
+            }
         }
         
         public void FirstJump()
